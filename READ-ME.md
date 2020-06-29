@@ -26,6 +26,7 @@ const union : string | number = '123' || 0;
 ### when multiple tsconfig.json use --p
 tsc --p path/tsconfig.json
 
-
+### importer rxjs in typescripts modules
+npm install @reactivex/rxjs
 
 

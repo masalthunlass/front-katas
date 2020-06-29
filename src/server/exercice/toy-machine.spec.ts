@@ -1,13 +1,28 @@
 import {ToyMachine} from "./toy-machine";
 
+describe('Toy Machine ', () => {
 // US 1
-test('toy machine should give present', () => {
-    const toyMachine = new ToyMachine();
-    const present = toyMachine.givesPresent();
-    expect(present).not.toBeNull();
-    expect(present).toBe("present");
-});
+    test('should give present', done => {
+        const toyMachine = new ToyMachine();
+        toyMachine.givesPresent().subscribe(present => {
+            expect(present).not.toBeNull();
+            expect(present).toBe("present_1");
+            done();
+        });
+    });
 
+    test('should increment present number when it gives present', done => {
+        const toyMachine = new ToyMachine();
+        toyMachine.givesPresent().subscribe(() => {
+            done();
+        });
+        toyMachine.givesPresent().subscribe(present => {
+            expect(present).not.toBeNull();
+            expect(present).toBe("present_2");
+            done();
+        });
+    });
+});
 
 
 
